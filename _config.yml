@@ -1,8 +1,8 @@
 # Configurations
-title:            Jekyll Gitbook
-longtitle:        Jekyll Gitbook
-author:           HE Tao
-email:            sighingnow@gmail.com
+title:            MLE Survival Guide
+longtitle:        Lessons and notes in machine learning
+author:           Ryley Higa
+email:            ryley.higa2@gmail.com
 description: >
   Build Jekyll site with the GitBook style.
 
@@ -10,7 +10,7 @@ version:          1.0
 gitbook_version:  3.2.3
 
 url:              'https://sighingnow.github.io'
-baseurl:          '/jekyll-gitbook'
+baseurl:          '/mle-survival-guide'
 rss:              RSS
 
 # bootstrap: use the remote theme for the site itself
@@ -52,13 +52,13 @@ exclude:
 collections:
   pages:
     output: true
+    sort_by: key
     permalink: /:collection/:path/
   others:
     output: true
     permalink: /:collection/:path/
 
 ordered_collections:
-  - posts
   - pages
   - others
 

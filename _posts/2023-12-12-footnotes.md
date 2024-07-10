@@ -5,6 +5,8 @@ date: 2023-12-12
 category: Jekyll
 layout: post
 mermaid: true
+key: 2
+published: false
 ---
 
 This jekyll-theme supports [MathJax](https://www.mathjax.org/) to render footnotes
