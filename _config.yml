@@ -60,7 +60,6 @@ collections:
 ordered_collections:
   - pages:
     sort_by: ordering
-  - others
 
 page_width: 800px
 
