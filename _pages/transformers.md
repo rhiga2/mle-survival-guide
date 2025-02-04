@@ -8,12 +8,12 @@ layout: post
 ---
 # Attention
 ## Scaled Dot-Product Attention
-* We are given input queries $Q$, keys $K$, and values $V$.
+* We are given input queries $Q$, keys $K$, and values $V$. Let $d$ be the number of columns in $K$. 
 * We calculate the scaled dot product attention as follows.
 
 $$
 \begin{gathered}
-Y = \text{Attention}(Q, K, V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right) V
+Y = \text{Attention}(Q, K, V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d}}\right) V
 \end{gathered}
 $$
 
@@ -44,7 +44,7 @@ M_{ij} = \begin{cases}
    1  & i < j \\
    -\infty & \text{else}     
 \end{cases} \\
-Y = \text{MaskedAttention}(Q, K, V) = \text{softmax}\left(M \odot \frac{QK^T}{\sqrt{d_k}}\right) V
+Y = \text{MaskedAttention}(Q, K, V) = \text{softmax}\left(M \odot \frac{QK^T}{\sqrt{d}}\right) V
 \end{gathered}
 $$
 
