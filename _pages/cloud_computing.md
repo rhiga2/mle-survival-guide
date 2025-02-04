@@ -1,6 +1,6 @@
 ---
 title: Cloud Computing
-author: Ryley
+author: Ryley Higa
 date: 2025-02-03
 category: cloud-computing
 ordering: 010
