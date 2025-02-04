@@ -1,7 +1,7 @@
 ---
 title: Cloud Computing
 author: Ryley
-date: 2025-02-03
+date: 2023-02-03
 category: cloud-computing
 ordering: 010
 layout: post
