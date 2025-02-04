@@ -6,7 +6,6 @@ category: deep-learning
 ordering: 020
 layout: post
 ---
-
 # Attention
 ## Scaled Dot-Product Attention
 * We are given input queries $Q$, keys $K$, and values $V$.
