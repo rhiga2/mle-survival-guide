@@ -52,7 +52,7 @@ exclude:
 collections:
   pages:
     output: true
-    sort_by: key
+    sort_by: ordering
     permalink: /:collection/:path/
   others:
     output: true
