@@ -11,22 +11,23 @@ layout: post
 * We are given input queries $Q$, keys $K$, and values $V$.
 * We calculate the scaled dot product attention as follows.
 
-```math
-\begin{gather*}
+$$
+\begin{gathered}
 Y = \text{Attention}(Q, K, V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right) V
-\end{gather*}
-```
+\end{gathered}
+$$
 
 ## Self-Attention
 * Self-attention refers to attention where the queries, keys, and values are all from the same input sequence. As opposed to cross attention where the queries can come from a different input sequence as the keys and values.
-* We do this by applying weight matrices to the input $X$. 
-```math
+* We do this by applying weight matrices to the input $X$.
+
+$$
 \begin{gathered}
 Q = W^Q X \\
 V = W^V X \\
 K = W^K X \\
 \end{gathered}
-```
+$$
 
 ## Multi-Head Attention (MHA)
 * Sometimes attention depends on different aspects of the input sequence. To capture this intuition, we want to give attention layers different representations of the input sequence $X$.
@@ -36,15 +37,16 @@ K = W^K X \\
 ## Masked Attention
 * Sometimes we don't want to give any attention to a future token in the sequence, meaning a query should not retrieve a future key-value pair.
 * To do this we zero out the upper triangular portion of the attention matrix before applying the softmax.
-```math
-\begin{gather*}
+
+$$
+\begin{gathered}
 M_{ij} = \begin{cases}
    1  & i < j \\
    -\infty & \text{else}     
 \end{cases} \\
 Y = \text{MaskedAttention}(Q, K, V) = \text{softmax}\left(M \odot \frac{QK^T}{\sqrt{d_k}}\right) V
-\end{gather*}
-```
+\end{gathered}
+$$
 
 # Transformers
 ## Input Embeddings
