@@ -56,6 +56,7 @@ collections:
     permalink: /:collection/:path/
   others:
     output: true
+    sort_by: ordering
     permalink: /:collection/:path/
 
 ordered_collections:
