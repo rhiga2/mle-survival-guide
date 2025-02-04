@@ -9,16 +9,8 @@ layout: post
 
 # Attention
 ## Scaled Dot-Product Attention
-* In scaled dot product attention, we are given input queries $Q$, keys $K$, and values $V$.
-    * We have $n$ queries with dimension $d$ ($Q \in \mathbb{R}^{n \times m}$)
-    * We also have $m$ keys and $m$ values with dimensions $d$ and $d'$ respectively ($K \in \mathbb{R}^{m \times d}$ and $V \in \mathbb{R}^{m \times d'}$)
-* We want to calculate the output as a weighted average of values $V$ based on the similarity between queries $Q$ and keys $K$. 
-* Attention correspond to the weight we give to values $V$ based on queries $Q$ and keys $K$.
-* We can calculate scaled dot product attention as follows: 
-    1. Calculate similarity between queries and keys using the dot product $QK^T$.
-    2. Scale the dot product by the square root of the dimension of the keys $d_k$.
-    3. Apply a softmax function to obtain the attention weights.
-    4. Take the weight average of values $V$ using attention weights to get the output.
+* We are given input queries $Q$, keys $K$, and values $V$.
+* We calculate the scaled dot product attention as follows.
 
 $$
 \begin{gather*}
@@ -26,9 +18,15 @@ Y = \text{Attention}(Q, K, V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\righ
 \end{gather*}
 $$
 
-* For each of our queries we get one output vector of dimension $d'$ ($Y \in \mathbb{R}^{n \times d'}$)
+## Self-Attention
 * Self-attention refers to attention where the queries, keys, and values are all from the same input sequence. As opposed to cross attention where the queries can come from a different input sequence as the keys and values.
-* In practice, self-attention computes the query, key, and value by appling three weight matrices $W^Q$, $W^K$, and $W^V$ respectively on input $X$.
+$$
+\begin{gathered}
+Q = W^Q X
+V = W^V X
+K = W^K X
+\end{gathered}
+$$
 
 ## Multi-Head Attention (MHA)
 * Sometimes attention depends on different aspects of the input sequence. To capture this intuition, we want to give attention layers different representations of the input sequence $X$.
