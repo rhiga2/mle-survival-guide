@@ -52,15 +52,14 @@ exclude:
 collections:
   pages:
     output: true
-    sort_by: ordering
     permalink: /:collection/:path/
   others:
     output: true
-    sort_by: ordering
     permalink: /:collection/:path/
 
 ordered_collections:
-  - pages
+  - pages:
+    sort_by: ordering
   - others
 
 page_width: 800px
