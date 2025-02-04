@@ -79,6 +79,6 @@ $$
 |:-:|:-:|:-:|
 |Encoder-Only|Discriminitive analysis of text such as sentiment classificaiton, entity recognition, etc... |BeRT|
 |Decoder-Only|Generative tasks such as summarization, question-answering, etc... |GPT-X|
-|Encoder-Decoder|Sequence-to-sequence tasks such as translation|Original transformer|
+|Encoder-Decoder|Sequence-to-sequence tasks such as translation||
 
 </div>
