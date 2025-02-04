@@ -1,6 +1,6 @@
 ---
 title: Transformers
-author: Ryley
+author: Ryley Higa
 date: 2024-07-09
 category: deep-learning
 ordering: 020
