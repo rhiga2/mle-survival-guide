@@ -11,11 +11,3 @@ layout: post
 ## Differentiation
 ## Partial Differentiation
 ## Gradients
-
-# Linear Algebra
-## Linear Transformation
-## Vector Spaces
-## Eigenvalues and Eigenvectors
-
-
-# Statistics 
