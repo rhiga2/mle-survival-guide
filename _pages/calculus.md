@@ -7,7 +7,6 @@ ordering: 001
 layout: post
 ---
 
-# Calculus
-## Differentiation
+# Differentiation
 ## Partial Differentiation
 ## Gradients
