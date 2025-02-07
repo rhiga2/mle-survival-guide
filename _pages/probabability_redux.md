@@ -18,17 +18,39 @@ layout: post
 ## Probability Density Function (PDF)
 ## Cumulative Distribution Function (CDF)
 * CDF defines the how likely $X$ is less than some value.
+
 $$
 \begin{gathered}
-F_X(x) = P(X < x) \\
-F_X(x) = \sum_{k = \infty}^x f_X(x)
+F_X(u) = P(X < u) \\
+F_X(u) = \begin{cases}
+  \sum_{k = -\infty}^u p_X(k) & \text{X discrete} \\
+  \int_{-\infty}^u f_X(t) dt & \text{X continuous} \\
+\end{cases}
 \end{gathered}
 $$
 
 ## Expectations
-
+### Law of the Unconscious Statistician Lotus
 ### Moments
 ### Moment Generating Functions
+
+
+# Joint and Conditional Random Variables
+## Joint Distributions
+## Sum of Random Variables
+* Let $Z = X + Y$.
+* Since LOTUS applies to joint distributions as well, the expectation of $Z$ is
+
+$$
+\begin{aligned}
+E[Z] &= \int \int (u + v) f_{X, Y}(u, v) du dv \\
+  &= \int \int u f_{X, Y}(u, v) du dv + \int \int x f_{X, Y}(u, v) du dv \\
+  &= \int du u \underbrace{\left( \int dv f_{X, Y}(u, v) \right)}_{f_X(u)} + \int dv v \left( \int du f_{X, Y}(u, v) \right) \\
+  &= E[X] + E[Y]
+\end{aligned}
+$$ 
+## Conditional Expectations
+
 
 ## Law of Large Numbers 
 ## Central Limit Theorem
