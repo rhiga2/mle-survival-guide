@@ -45,7 +45,7 @@ $$
 \begin{aligned}
 E[Z] &= \int \int (u + v) f_{X, Y}(u, v) du dv \\
   &= \int \int u f_{X, Y}(u, v) du dv + \int \int x f_{X, Y}(u, v) du dv \\
-  &= \int du u \underbrace{\left( \int dv f_{X, Y}(u, v) \right)}_{f_X(u)} + \int dv v \left( \int du f_{X, Y}(u, v) \right) \\
+  &= \int du u \left( \int dv f_{X, Y}(u, v) \right) + \int dv v \left( \int du f_{X, Y}(u, v) \right) \\
   &= E[X] + E[Y]
 \end{aligned}
 $$ 
