@@ -3,7 +3,7 @@ title: Databases
 author: Ryley Higa
 date: 2025-02-03
 category: math
-ordering: 001
+ordering: 011
 layout: post
 ---
 # Overview
