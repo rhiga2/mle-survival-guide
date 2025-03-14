@@ -8,12 +8,48 @@ layout: post
 ---
 
 # Introduction
+## What is Cloud Computing?
+* Using remote servers to process, store, and manage data as opposed to local infrastructure.
+* Cloud provider manage these remote servers and allow us to access these servers. 
+* Examples of cloud providers include: Amazon Web Service (AWS), Google Cloud Provider (GCP), and Microsoft Azure.
+* Virtualization
+* Multi-tenancy: cloud users may share physical resources. 
 ## Why Cloud?
-## Different Levels of Cloud Offerings
+* Scalability (Elasticity): We can provision resources based on demand. 
+* Availability: Cloud providers have data centers in many regions and availability zones. We can still be available when data centers go down. 
+* Specialization: We don't need to worry about managing physical resources. Let the cloud provider handle it. 
+## Different Levels
 ### Infrastructure as a Service
-### Platform as a Service
-### Serverless
+* Infrastructure is managed for you by a cloud provider, but you must manage the OS, libraries, and application.
+### Platform as a Service and Serverless
+* Infrastructure, OS, and many libraries are managed for you, but you must manage the application.
+* Serverless compute is a type of PAAS that focuses on function execution. It's also known as function as a service. 
+### Software as a Service
+* Infrastructure, OS, application, etc... are managed for you.
 
+# Identity and Access Management (IAM)
+* Authentication: who are you? 
+* Authorization: what can you do? 
+* Shared Responsibility Model: cloud provider manages security of the cloud, but it's the users job to ensure security in the cloud.
+* Principle of Least Privelege: only provide enough permissions to get the job done. 
+## Policies, Users, Groups, and Roles
+* Policies: Grant permissions to principals 
+* Users: principals with long-term credentials
+* Groups: Allow you to assign permissions to multiple users.
+* Roles: principals can gain short-term credentials by assuming roles.
+
+# Virtual Private Cloud 
+## IP Addresses and CIDR
+* IPv4
+* IPv6
+* CIDR specifies a range of ip addresses using the following notation
+```
+<ip_address>/<mask bits>
+```
+  * Mask bits refer to the number of bits left to right that are constant in the range. Higher mask bits means smaller range. 
+## Public and Private Subnets
+* Public subnets have a direct route to the internet gateway, whereas private subnets do not.
+* Private subnets must use a NAT gateway to allow outbound connections to internet. Arbitrary inbound connections from the internet are not allowed.
 
 # Cloudonomics
 * More economical to use cloud if (average demand) * (cloud cost) < (peak demand) * (owning cost)
@@ -26,12 +62,7 @@ layout: post
   * Jobs correlated negatively. CoV decreases
   * Jobs correlated positvely. CoV increases
 
-# IAM
-
 # Compute
-
-# Virtual Private Cloud 
-## IP Addresses and CIDR Notation
 
 # Serverless Compute
 * Build and launch applicaiton without managing the server yourself.
