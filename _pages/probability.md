@@ -1,5 +1,5 @@
 ---
-title: Probability Redux
+title: Probability and Statistics Redux
 author: Ryley Higa
 date: 2025-02-03
 category: math
@@ -8,9 +8,12 @@ layout: post
 ---
 
 # Probability Spaces
+The idea behind probability is to assign events number between 0 and 1 that indicate the likelihood that the event will occur. Mathematicians way of 
+modelling events are with subsets. The union of all subsets is the set of all possible outcomes known as the **sample space** $\Omega$. Sample spaces like the set of 
+real numbers will contain subsets that are not measurable (cannot be assigned probability with measure $P$). Since not all subsets work with probability measures, we must also define a subset of subsets known as an event field $F$ that contains only measurable subsets. For the real number sample space, the event field is a sigma algebra of open intervals. Every probability space, is therefore defined by the triplet $(\Omega, F, P)$.
 
 # Random Variables
-* A random variable is a function mapping the sample space to a number. 
+A random variable is a function mapping the sample space to a number and is often denoted with capital letters  
 * If set of values $X$ can take on is countable, $X$ is discrete. Otherwise, continuous.
 * We can assign a probability to some value of $X$ if $X$ is discrete. If $X$ is continuous, we can only assign a probability that $X$ falls in set.
 * A function applied to a random variable is a random variable itself (i.e. $f(X)$ is a random variable). 
