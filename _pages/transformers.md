@@ -10,7 +10,7 @@ layout: post
 Transformers are a form of deep learning architecture that powers nearly all large language models and is also making state-of-the-art breakthroughs in many vision and reasoning tasks as well. 
 The primary architecture component of transformers are **attention mechanisms**. As humans, given a image we don't pay attention to every region in the image equally. For instance, 
 we often pay more attention to foreground objects as opposed to background details. Machines need to similar method of assigning importance (called **attention**) to certain components of an input.
-Thus attention mechanism should have the following properties:
+Based on this inuition, all attention mechanisms should have the following properties:
 1. A way of breaking inputs into **value** vectors in which to assign attention. In LLMs, these values can be single token embeddings, whereas in images, these values can be divided regions of an image.   
 2. A mechanism to assign attention to each value based on a **query**. In humans, our attention is situational. If you were given an image of a cat and dog and asked a question about the dog,
 our attention will focus primarily on the dog. Likewise, if we were to asked a question about the cat, our attention will focus primarily on the cat. 
