@@ -7,7 +7,7 @@ ordering: 033
 layout: post
 ---
 # Transformers
-Transformers are a deep learning architecture that powers nearly all large language models and is also making state-of-the-art breakthroughs in many vision and reasoning tasks as well. 
+Transformers are a form of deep learning architecture that powers nearly all large language models and is also making state-of-the-art breakthroughs in many vision and reasoning tasks as well. 
 The primary architecture component of transformers are **attention mechanisms**. As humans, given a image we don't pay attention to every region in the image equally. For instance, 
 we often pay more attention to foreground objects as opposed to background details. Machines need to similar method of assigning importance (called **attention**) to certain components of an input.
 Thus attention mechanism should have the following properties:
