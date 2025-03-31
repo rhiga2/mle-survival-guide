@@ -1,5 +1,5 @@
 ---
-title: Math for Machine Learning and Deep Learning
+title: Probability and Statistics for Machine Learning
 author: Ryley Higa
 date: 2025-02-03
 category: math
@@ -24,6 +24,14 @@ $$
 p(a < X < b) = \int_a^b p(x) dx
 $$
 
+For both discrete and continuous random variables, we can also define a cumulative distribution by the following definition: 
+
+$$
+F(x) = P(X < x)
+$$
+
+Note that the cumulative distribution is monotonically non-decreasing. 
+
 ## Joint and Conditional Distributions
 Joint distributions are formed by the conjunction of two random variables. 
 
@@ -31,24 +39,86 @@ $$
 p(x, y) = p(X=x \text{ and } Y=y)
 $$
 
-The **sum rule** (also known as **marginalization**) tells us how to relate single variable to joint distributions.  
+In joint distributions, we get a **marginalized distribution** in $x$ by summing over all possible values that $y$ can take on.
 
 $$
 p(x) = \sum_y p(x, y)
 $$
 
-Note that the sum over all random variables in a joint distribution should equal $1$. On ther other hand, conditional distributions denoted as $p(x | y)$ are renormalized joint distributions such that the sum over $x$ for any $y$ is 1. The conditional distribution tells us the probability of $x$ given we know $y$.  
+From the joint distribution, we can also specify the conditional distribution $p(x | y)$, which tells us the probability of $x$ given we know about $y$. To get the conditional distribution, we renormalize the joint distribution by $p(y)$.   
 
 $$
-p(x) = \sum_y p(x, y)
+p(x | y) = \frac{p(x, y)}{p(y)}
 $$
 
 ## Expectations and Covariances
+For any distribution, we can define the center of the distribution by its **expectation**. Expectations are the average value a random variable can take on weighted by their probability. 
+
+$$
+E[X] = \begin{cases}
+\sum_x x p(x) & \text{ x is dicrete } \\
+\int_x x p(x) dx & \text{ x is continuous} 
+\end{cases}
+$$
+
+The most important property of expectations is linearity as it's used in many scenarios:
+
+$$
+E[aX + bY + c] = aE[X] + bE[Y] + c
+$$
+
+Similar to how expectation defines the center of the distribution, **variance** (and likewise **standard deviation** which is just the square root of variance) defines how spread the distribution is from the expectation. 
+
+$$
+\begin{aligned}
+\text{var}(X) &= E[(X - E[X])^2] \\
+  &= E[X^2 - 2XE[X]] + E[X]^2 \\
+  &= E[X^2] - E[X]^2
+\end{aligned}
+$$
+
+The quantity $E[X^n]$ is often referred to as the **nth moment**.
+
 ## Gaussians
-The most important distribution is the Gaussian distribution (known as the bell curve or normal distribution). The density is defined by the function:
+**Gaussian** distributions are continuous probability distributions that show up in a wide range of fields such as statistics. We define Gaussian distributions uniquely by it's mean $\mu$ and variance $\sigma^2$:
 
 $$
 p(x) = \frac{1}{\sqrt{2 \pi \sigma^2}} \exp \left( \frac{1}{2 \sigma^2} (x - \mu)^2 \right)
 $$
 
-## Information Theory
+## Convergence
+Just like how a sequence of numbers can converge, a sequence of random variables (known as **random processes**) can also converge. Suppose we want to design a robot that guesses a secret number $X$ hourly (each hourly guess is denoted by the random process $X_n$). A bad guess means that the deviation $|X_n - X|$ is large (greater than some value $\epsilon$). If the robot guesses the number with low deviation in one trial run that may be drawn to luck, we want to make sure that our robot design repeatedly converges for multiple different trials. In the following section, we will use this analogy to explain each notion of convergence:
+1. Convergence in distribution: the weakest definition of convergence we will discuss. When our random process converges in distribution, that means over time the distribution of our robot's guesses converges to the same distribution that we use to pick our secret number $X$. The actual deviation $|X_n - X|$ is not guaranteed to be small.
+
+$$
+\lim_{x \rightarrow \infty} F_n(X) = F(X)
+$$
+
+2. Converge in probability: when the random process converges in probability, that means probability of bad guesses (large deviations) becomes more rare over time. Convergence in probability implies converge in distribution. Note that convergence in probability does say anything about the actual size of the deviation. 
+
+$$
+\lim_{n \rightarrow \infty} P(|X_n - X|  > \epsilon) = 0
+$$
+
+3. Convergence in expectation: when the random process converges in expectation, the expected deviation does to $0$ over time. This means that the deviation cannot be too large or too likely. Since convergence in expectation constrains both the size and likelihood of large deviation, this notion of convergence is stronger than convergence in probability. 
+
+$$
+\lim_{n \rightarrow \infty} E[|X_n - X|] = 0
+$$
+
+4. Almost sure convergence: when the random process converges almost surely, the robot will eventually stop making guesses with large deviation over time. The probability of finding a trial where this does not occur is effectively $0$.
+
+$$
+P \left(\lim_{n \rightarrow \infty} X_n = X \right) = 1
+$$
+
+# Statistics
+## Law of Large Numbers and Central Limit Theorem
+## Estimation
+## Confidence Intervals
+## Hypothesis Testing
+## Bayesian Statistics
+
+# Information Theory
+## Entropy
+## KL Divergge
