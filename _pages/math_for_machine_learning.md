@@ -45,10 +45,10 @@ $$
 p(x) = \sum_y p(x, y)
 $$
 
-From the joint distribution, we can also specify the conditional distribution $p(x | y)$, which tells us the probability of $x$ given we know about $y$. To get the conditional distribution, we renormalize the joint distribution by $p(y)$.   
+From the joint distribution, we can also specify the conditional distribution $p(x \vert y)$, which tells us the probability of $x$ given we know about $y$. To get the conditional distribution, we renormalize the joint distribution by $p(y)$.   
 
 $$
-p(x | y) = \frac{p(x, y)}{p(y)}
+p(x \vert y) = \frac{p(x, y)}{p(y)}
 $$
 
 ## Expectations and Covariances
@@ -87,8 +87,8 @@ p(x) = \frac{1}{\sqrt{2 \pi \sigma^2}} \exp \left( \frac{1}{2 \sigma^2} (x - \mu
 $$
 
 ## Convergence
-Just like how a sequence of numbers can converge, a sequence of random variables (known as **random processes**) can also converge. Suppose we want to design a robot that guesses a secret number $X$ hourly (each hourly guess is denoted by the random process $X_n$). A bad guess means that the deviation $|X_n - X|$ is large (greater than some value $\epsilon$). If the robot guesses the number with low deviation in one trial run that may be drawn to luck, we want to make sure that our robot design repeatedly converges for multiple different trials. In the following section, we will use this analogy to explain each notion of convergence:
-1. Convergence in distribution: the weakest definition of convergence we will discuss. When our random process converges in distribution, that means over time the distribution of our robot's guesses converges to the same distribution that we use to pick our secret number $X$. The actual deviation $|X_n - X|$ is not guaranteed to be small.
+Just like how a sequence of numbers can converge, a sequence of random variables (known as **random processes**) can also converge. Suppose we want to design a robot that guesses a secret number $X$ hourly (each hourly guess is denoted by the random process $X_n$). A bad guess means that the deviation $\lvert X_n - X \rvert$ is large (greater than some value $\epsilon$). If the robot guesses the number with low deviation in one trial run that may be drawn to luck, we want to make sure that our robot design repeatedly converges for multiple different trials. In the following section, we will use this analogy to explain each notion of convergence:
+1. Convergence in distribution: the weakest definition of convergence we will discuss. When our random process converges in distribution, that means over time the distribution of our robot's guesses converges to the same distribution that we use to pick our secret number $X$. The actual deviation $\lvert X_n - X \rvert$ is not guaranteed to be small.
 
 $$
 \lim_{x \rightarrow \infty} F_n(X) = F(X)
@@ -97,13 +97,13 @@ $$
 2. Converge in probability: when the random process converges in probability, that means probability of bad guesses (large deviations) becomes more rare over time. Convergence in probability implies converge in distribution. Note that convergence in probability does say anything about the actual size of the deviation. 
 
 $$
-\lim_{n \rightarrow \infty} P(|X_n - X|  > \epsilon) = 0
+\lim_{n \rightarrow \infty} P(\lvert X_n - X \rvert  > \epsilon) = 0
 $$
 
-3. Convergence in expectation: when the random process converges in expectation, the expected deviation does to $0$ over time. This means that the deviation cannot be too large or too likely. Since convergence in expectation constrains both the size and likelihood of large deviation, this notion of convergence is stronger than convergence in probability. 
+3. Convergence in expectation: when the random process converges in expectation, the expected deviation goes to $0$ over time. This means that the deviation cannot be too large or too likely. Since convergence in expectation constrains both the size and likelihood of large deviation, this notion of convergence is stronger than convergence in probability. 
 
 $$
-\lim_{n \rightarrow \infty} E[|X_n - X|] = 0
+\lim_{n \rightarrow \infty} E[\lvert X_n - X \rvert] = 0
 $$
 
 4. Almost sure convergence: when the random process converges almost surely, the robot will eventually stop making guesses with large deviation over time. The probability of finding a trial where this does not occur is effectively $0$.
