@@ -1,5 +1,5 @@
 ---
-title: Probability and Statistics for Machine Learning
+title: Probability and Statistics Redux
 author: Ryley Higa
 date: 2025-02-03
 category: math
@@ -106,7 +106,7 @@ $$
 \lim_{n \rightarrow \infty} E[\lvert X_n - X \rvert] = 0
 $$
 
-4. Almost sure convergence: when the random process converges almost surely, the robot will eventually stop making guesses with large deviation over time. The probability of finding a trial where this does not occur is effectively $0$.
+4. Almost sure convergence: when the random process converges almost surely, the likelihood that the robot will eventually stop making mistakes over time is one. Almost sure convergence is stronger than convergence in probability but not stronger than convergence in expectation. 
 
 $$
 P \left(\lim_{n \rightarrow \infty} X_n = X \right) = 1
@@ -114,6 +114,12 @@ $$
 
 # Statistics
 ## Law of Large Numbers and Central Limit Theorem
+The law of large numbers and the central limit theorem (LLN and CLT respectively) are the most used theorems in statistics and form the foundation of frequentist statistics. In the real world, we often don't know the underlying probability distribution governing observed data so we rely on a sample of observations to approximate the underlying model. One issue is that without the probability distribution we are unable to directly reason about the expectation and variance of observed data since both quantities rely on knowing the probability model used to generate the data. A statistic is a numerical value that is calculated based on observed data that allows us to reason about both the underlying model and quantities associated wirth the model. For example, the sample mean $\overline{X}_n$ is an important statistic that is calculated by taking the average of observations (sum of all observations divided by number of observations). LLN and CLT are both concerned with statistics as the sample size goes to $\infty$ 
+
+The LLN comes in two flavors: the strong law and the weak law. The strong law states that the sample mean converges to the expectation almost surely, whereas the weak law states that this convergence happens in probability. As the names imply the strong law implies the weak law.
+
+While LLN is concerned with the sample mean, CLT is concerned with 
+
 ## Estimation
 ## Confidence Intervals
 ## Hypothesis Testing
