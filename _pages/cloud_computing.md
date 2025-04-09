@@ -9,9 +9,13 @@ layout: post
 
 # Introduction
 ## What is Cloud Computing?
-* Using remote servers to process, store, and manage data as opposed to local infrastructure.
-* Cloud provider manage these remote servers and allow us to access these servers. 
-* Examples of cloud providers include: Amazon Web Service (AWS), Google Cloud Provider (GCP), and Microsoft Azure.
+**Cloud computing** is the practice of using remote servers over the internet to process, store, and manage data as opposed to on-premise infrastructure. Businesses that offer cloud computing solutions are called **cloud providers**. Examples of cloud providers include Amazon Web Service (AWS), Google Cloud Provider (GCP), and Microsoft Azure. 
+
+## Why use Cloud Computing?
+Cloud computing offers several advantages compared to on-premise infrastructure including:
+1. Elasticity: cloud providers are able to scale infracture on demand. If you were to use your own on premise infrastrcture, you would need to pay for max demand or else risk performance degradation or inavailability in peak hours.
+2. Availability: cloud providers offer services across many datacenters 
+
 * Virtualization
 * Multi-tenancy: cloud users may share physical resources. 
 ## Why Cloud?
