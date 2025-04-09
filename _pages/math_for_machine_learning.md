@@ -118,7 +118,11 @@ The law of large numbers and the central limit theorem (LLN and CLT respectively
 
 The LLN comes in two flavors: the strong law and the weak law. The strong law states that the sample mean converges to the expectation almost surely, whereas the weak law states that this convergence happens in probability. As the names imply the strong law implies the weak law.
 
-While LLN is concerned with the sample mean, CLT is concerned with 
+While LLN is concerned with the sample mean, CLT is concerned with another statistic formed by taking the sum of observations and dividing by \sqrt{n} instead of $n$. 
+
+$$
+\sqrt{n} (\overline{X}_n - E[X]) \xrightarrow{d} N(0, \sigma^2) 
+$$
 
 ## Estimation
 ## Confidence Intervals
