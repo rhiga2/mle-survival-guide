@@ -10,7 +10,7 @@ layout: post
 # Probability
 **Probability** is an important aspect of machine learning and deep learning because it allows us to quantify uncertainty of our predictions. One important aspect is that there is no absolute quantification of uncertainty meaning that two people can come up with valid, different models when observing the same data. Validity is determined by a set of rules governing probability rather than a strict source of truth. In this section, we will go over these rules as well as some applications.
 ## Random Variables
-**Random variables** are functions that assign a numerical value to elements in the sample space. A random variable is **discrete** if we can assign **probability mass** to any value the random can take on. The function that assigns mass to discrete random variables is called a probability mass function (PMF).
+**Random variables** are functions that assign a numerical value to elements in the sample space. A random variable is **discrete** if we can assign probability mass to any value the random can take on. The function that assigns mass to discrete random variables is called a **probability mass function** (PMF).
 
 $$
 P(X=x) = p(x)
@@ -18,53 +18,82 @@ $$
 
 Probability mass function have two constraints: the function must be greater than 0 and less than 1, and the total mass must equal 1.  
 
-On the other hand, continuous random variables have no probability mass at a particular value. Instead we assign densities to continuous random variables and compute mass by integrating the density in a given subset. The function that assigns density to a continuous random variable is called a probability density function (PDF). 
+On the other hand, continuous random variables have no probability mass at a particular value. Instead we assign densities to continuous random variables and compute mass by integrating the density in an interval (say $[a, b]$). The function that assigns density to a continuous random variable is called a **probability density function** (PDF). 
 
 $$
 p(a < X < b) = \int_a^b p(x) dx
 $$
 
-For both discrete and continuous random variables, we can also define a cumulative distribution by the following definition: 
+Similar to probability mass, the probability density function must integrate to $1$ along the entire real line.  
+
+For both probability density and continuous random variables, we can also define a **cumulative distribution function** (CDF) by the following definition: 
 
 $$
-F(x) = P(X < x)
+F(x) = P(X \le x)
 $$
 
-Note that the cumulative distribution is monotonically non-decreasing. 
+For discrete random variables, we sum mass up to a point $x$:
+
+$$
+F(x) = \sum_{u=\infty}^x p(u)
+$$
+
+For continuous random variables, we integrate density up to a point $x$:
+
+$$
+F(x) = \int_{\infty}^x p(u) du
+$$
+
+Note that by fundamental theorem of calculus, the PDF is the derivative of the CDF.
+
+Since CDFs are both valid for discrete and continuous random variables, we often create definitions and state theorems based on CDF so that we don't distinguish about whether 
+were discussing discrete or continuous distributions. In this reading though we will talk mostly about discrete random variables and use the PMF in our definitions. 
+
 
 ## Joint and Conditional Distributions
-Joint distributions are formed by the conjunction of two random variables. 
+**Joint distributions** are formed by the conjunction of two random variables. 
 
 $$
 p(x, y) = p(X=x \text{ and } Y=y)
 $$
 
-In joint distributions, we get a **marginalized distribution** in $x$ by summing over all possible values that $y$ can take on.
+In joint distributions, we get the distribution of $x$ only by summing over all possible values that $y$ can take on. This process is called the **marginalization** or the **sum rule**. 
 
 $$
 p(x) = \sum_y p(x, y)
 $$
 
-From the joint distribution, we can also specify the conditional distribution $p(x \vert y)$, which tells us the probability of $x$ given we know about $y$. To get the conditional distribution, we renormalize the joint distribution by $p(y)$.   
+From the joint distribution, we can also specify the conditional distribution $p(x \vert y)$, which tells us the probability of $x$ given we know about $y$. To get the **conditional distribution**, we renormalize the joint distribution by dividing by $p(y)$.   
 
 $$
 p(x \vert y) = \frac{p(x, y)}{p(y)}
-$$
+$$ 
 
 ## Expectations and Covariances
 For any distribution, we can define the center of the distribution by its **expectation**. Expectations are the average value a random variable can take on weighted by their probability. 
 
 $$
-E[X] = \begin{cases}
-\sum_x x p(x) & \text{ x is dicrete } \\
-\int_x x p(x) dx & \text{ x is continuous} 
-\end{cases}
+EX = \sum_x x p(x)
 $$
 
-The most important property of expectations is linearity as it's used in many scenarios:
+Since random variables are functions that map to real numbers, any function $f$ that maps real numbers to real numbers applied to a random variable $X$ is still a random variable. 
+This means we can take the expectation of functions of random variables:
 
 $$
-E[aX + bY + c] = aE[X] + bE[Y] + c
+Ef(X) = \sum_x f(x) p(x)
+$$
+
+This is sometimes called the **Law of the Unconscious Statistician** (LOTUS) since it's such an intuitive rule that many statisticians assume it without a second thought.  
+
+Based on LOTUS, we see that expectation are linear:  
+
+$$
+\begin{aligned}
+E[aX + bY + c] &= \sum_{(x, y)} (ax + by + c) p(x, y) \\
+  &= a \sum_x x \left(\sum_y p(x, y)\right) + b \sum_y y \left(\sum_x p(x, y)\right) + c \\
+  &= a \sum_x x p(x) + b \sum_y p(y) + c \\
+  &= aEX + bEY + c
+\end{aligned}
 $$
 
 Similar to how expectation defines the center of the distribution, **variance** (and likewise **standard deviation** which is just the square root of variance) defines how spread the distribution is from the expectation. 
@@ -77,7 +106,11 @@ $$
 \end{aligned}
 $$
 
-The quantity $E[X^n]$ is often referred to as the **nth moment**.
+The quantity $E[X^n]$ is often referred to as the **nth moment**. Similar to variance and expectations, moments are very useful tools for describing distributions. The **moment generating function** (MGF) defined by $M_X(t) = E[e^{tX}]$ gets it's name because it can spit out the nth moment by taking the derivative and setting $t=0$. Thus it's easy to reason about distributions with simple MGFs since we can calculate as many moments as we need. 
+
+$$
+\frac{d^n}{(dt)^n}M_X(t) \Bigr|_{t=0} = E[X^ne^{tX}] \Bigr|_{t=0} = E[X^n]
+$$
 
 ## Gaussians
 **Gaussian** distributions are continuous probability distributions that show up in a wide range of fields such as statistics. We define Gaussian distributions uniquely by it's mean $\mu$ and variance $\sigma^2$:
