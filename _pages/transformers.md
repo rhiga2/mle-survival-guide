@@ -103,13 +103,14 @@ $$
 
 <div class="table-wrapper" markdown="block">
 
-|Type|Common Usage|Examples|
+|Type|Common Usage|
 |:-:|:-:|:-:|
-|Encoder-Only|Discriminitive analysis of text such as sentiment classificaiton, entity recognition, etc... |BeRT|
-|Decoder-Only|Generative tasks such as summarization, question-answering, etc... |GPT-X|
-|Encoder-Decoder|Sequence-to-sequence tasks such as translation||
+|Encoder-Only|Discriminitive analysis of text such as sentiment classificaiton, entity recognition, etc... |
+|Decoder-Only|Generative tasks such as summarization, question-answering, etc... |
+|Encoder-Decoder|Sequence-to-sequence tasks such as translation|
 
 </div>
+Note that now days decoder-only models such as OpenAI's chatGPT have gotten so powerful and sophisticated that they are used in places where traditionally encoder-only or encoder-decoder models were used.
 
 # Non-Functional Performance Optimizations
 ## Quantization
