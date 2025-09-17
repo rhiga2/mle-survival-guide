@@ -1,5 +1,5 @@
 ---
-title: Probability and Statistics Redux
+title: Probability Redux
 author: Ryley Higa
 date: 2025-02-03
 category: math
