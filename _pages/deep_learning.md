@@ -8,12 +8,8 @@ layout: post
 ---
 # Computational Graphs
 Tensors are n-dimensional arrays of numbers. For example, 0-dimensional tensor are scalars, 1-dimensional tensors are vectors, and 2-dimensional tensors are matrices. **Computational graphs** are directed graphs where each node represents **tensor** operations and each edge represents the composition of operations. Deep learning networks are parameterized (and usually large) computational graphs that support two main operations:
-1. Forward propagation takes an input tensor $x$ and transforms the input 
-
-
-## Forward and Backward Propagation
-* Forward propagation: given input and parameter tensors to the graph compute the final output.
-* Backward propagation: given feedback signal computed on the graph's output, compute feedback on the input and parameter tensors.
+1. Forward propagation takes an input tensor $x$ and transforms the input to an output prediction such as the classification of an image or the next word in a sentence.
+2. Backpropagation takes feedback from the output prediction and applies feedback to the parameters of 
 
 # Fully-Connected Networks (TODO)
 
@@ -39,5 +35,6 @@ Tensors are n-dimensional arrays of numbers. For example, 0-dimensional tensor a
 ### Distillation Techniques
 * Use softmax output as training. In this case, it's common to adjudst the softmax output with increased tempurature (softens the distribution) and use KL divergence loss.
 *      
+
 
 
